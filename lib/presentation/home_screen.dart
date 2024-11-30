@@ -34,14 +34,12 @@ class HomeScreen extends StatelessWidget {
             children: [
               ButtonGeneral(
                 title: 'Rick and Morty',
-                action: () async {
-                  context.push('/characters');
-                },
+                action: () => context.push('/characters'),
               ),
               SizedBox(height: size.height * 0.04),
               ButtonGeneral(
                 title: 'Map',
-                action: (){},
+                action: () => context.push('/map'),
               ),
             ],
           )

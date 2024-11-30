@@ -17,7 +17,6 @@ class ApiCharactersDatasource extends CharactersDatasource {
       final rest = await http.get(
         Uri.parse('https://rickandmortyapi.com/api/character/$idsString'),
       );
-      print(rest.statusCode);
       if(rest.statusCode == 200){
         List<dynamic> jsonData = json.decode(rest.body);
         characters = jsonData.map((item) => CharactersModel.fromJson(item)).toList();
@@ -29,9 +28,20 @@ class ApiCharactersDatasource extends CharactersDatasource {
   }
 
   @override
-  Future<List<CharactersModel>> getNameCharacter(String name) {
-    // TODO: implement getNameCharacter
-    throw UnimplementedError();
+  Future<List<CharactersModel>> getNameCharacter(String name) async{
+    List<CharactersModel> characters = [];
+    try {
+      final rest = await http.get(
+        Uri.parse('https://rickandmortyapi.com/api/character/?name=$name'),
+      );
+      if(rest.statusCode == 200){
+        List<dynamic> jsonData = json.decode(rest.body);
+        characters = jsonData.map((item) => CharactersModel.fromJson(item)).toList();
+      }
+      return characters;
+    } catch (e) {
+      return characters;
+    }
   }
 
 }

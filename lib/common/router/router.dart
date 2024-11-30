@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:test_rickandmorty_map/domain/entities/characters_entities.dart';
-import 'package:test_rickandmorty_map/presentation/screen/screen.dart';
+import 'package:test_rickandmorty_map/presentation/screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -28,6 +28,11 @@ final appRouter = GoRouter(
       path: '/favorite',
       name: FavoriteCharactersScreen.name,
       builder: (context, state) => const FavoriteCharactersScreen()
+    ),
+    GoRoute(
+      path: '/map',
+      name: MapScreen.name,
+      builder: (context, state) => const MapScreen()
     ),
   ]
 );

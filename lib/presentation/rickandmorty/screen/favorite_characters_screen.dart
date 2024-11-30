@@ -1,4 +1,4 @@
-part of '../screen.dart';
+part of '../../screen.dart';
 
 class FavoriteCharactersScreen extends StatelessWidget {
   const FavoriteCharactersScreen({super.key});

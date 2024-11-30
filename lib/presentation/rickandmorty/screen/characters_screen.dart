@@ -1,4 +1,4 @@
-part of '../screen.dart';
+part of '../../screen.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({super.key});
